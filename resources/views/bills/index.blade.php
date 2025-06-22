@@ -15,6 +15,9 @@
                 <i class="fas fa-receipt"></i> SplitBill
             </a>
             <div class="user-info">
+                <a href="/dashboard" class="logout-btn" style="text-decoration: none;">
+                    <i class="fas fa-home"></i> Home
+                </a>
                 <div class="user-avatar">
                     {{ substr(Auth::user()->name, 0, 1) }}
                 </div>
@@ -40,14 +43,7 @@
         @endif
 
         <div class="dashboard-grid">
-            <div class="dashboard-card">
-                <div class="card-icon">
-                    <i class="fas fa-plus-circle"></i>
-                </div>
-                <h3 class="card-title">Create New Bill</h3>
-                <p class="card-description">Add a new expense and split it among your group members.</p>
-                <a href="/dashboard" class="card-btn">Create Bill</a>
-            </div>
+            
 
             @if($allBills->count() > 0)
                 @foreach($allBills as $bill)

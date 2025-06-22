@@ -516,7 +516,7 @@
                     <div class="form-group">
                         <label for="bill_name" class="form-label">Bill Name</label>
                         <input type="text" id="bill_name" name="bill_name" class="form-input" 
-                               placeholder="e.g., Goa Trip, Dinner at XYZ, Monthly Rent" value="{{ old('bill_name') }}" required>
+                               placeholder="Trip , Dinner , Rent" value="{{ old('bill_name') }}" required>
                         @error('bill_name')
                             <div class="error">{{ $message }}</div>
                         @enderror
