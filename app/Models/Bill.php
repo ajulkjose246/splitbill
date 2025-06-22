@@ -34,7 +34,7 @@ class Bill extends Model
     public function users()
     {
         return $this->belongsToMany(User::class, 'bill_participants')
-                    ->withTimestamps();
+            ->withTimestamps();
     }
 
     public function expenses()

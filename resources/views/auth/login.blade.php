@@ -9,6 +9,23 @@
     <link href="{{ asset('/css/auth.css') }}" rel="stylesheet">
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/home" class="logo">
+                    <i class="fas fa-receipt"></i> SplitBill
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/home#features">Features</a></li>
+                    <li><a href="/home#calculator">Calculator</a></li>
+                    <li><a href="/home#about">About</a></li>
+                    <li><a href="/home#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <div class="auth-container">
         <div class="auth-card">
             <div class="auth-header">
@@ -47,13 +64,7 @@
                     @enderror
                 </div>
 
-                <div class="form-options">
-                    <label class="checkbox-container">
-                        <input type="checkbox" name="remember" id="remember">
-                        <span class="checkmark"></span>
-                        Remember me
-                    </label>
-                </div>
+                
 
                 <button type="submit" class="auth-btn">
                     <i class="fas fa-sign-in-alt"></i> Sign In

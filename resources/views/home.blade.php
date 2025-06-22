@@ -36,7 +36,7 @@
             <div class="cta-buttons">
                 
                 <a href="{{ route('login') }}" class="btn btn-secondary">
-                    <i class="fas fa-download"></i> Get Started
+                    <i class="fas fa-sign-in-alt"></i> Get Started
                 </a>
             </div>
         </div>
