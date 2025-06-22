@@ -39,6 +39,9 @@
                 0 0 0 1px rgba(255, 255, 255, 0.1);
             animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            max-height: 90vh;
         }
 
         @keyframes modalSlideIn {
@@ -112,9 +115,17 @@
             transform: rotate(90deg);
         }
 
+        #createBillForm {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            min-height: 0; /* Fix for flexbox scrolling */
+        }
+
         .modal-body {
             padding: 2.5rem;
             background: white;
+            overflow-y: auto;
         }
 
         .form-group {
@@ -299,6 +310,7 @@
             background: #f8fafc;
             border-radius: 0 0 20px 20px;
             border-top: 1px solid #e2e8f0;
+            flex-shrink: 0; /* Prevent footer from shrinking */
         }
 
         .btn {
@@ -465,31 +477,15 @@
                 <button onclick="openModal()" class="card-btn">Create Bill</button>
             </div>
 
-            <div class="dashboard-card">
-                <div class="card-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3 class="card-title">Manage Groups</h3>
-                <p class="card-description">Create and manage groups for different occasions and events.</p>
-                <a href="#" class="card-btn">Manage Groups</a>
-            </div>
+            
 
             <div class="dashboard-card">
                 <div class="card-icon">
-                    <i class="fas fa-chart-pie"></i>
+                    <i class="fas fa-file-invoice"></i>
                 </div>
-                <h3 class="card-title">View Analytics</h3>
-                <p class="card-description">See your spending patterns and settlement history.</p>
-                <a href="#" class="card-btn">View Analytics</a>
-            </div>
-
-            <div class="dashboard-card">
-                <div class="card-icon">
-                    <i class="fas fa-history"></i>
-                </div>
-                <h3 class="card-title">Payment History</h3>
-                <p class="card-description">Track all your past transactions and settlements.</p>
-                <a href="#" class="card-btn">View History</a>
+                <h3 class="card-title">View Bills</h3>
+                <p class="card-description">See all your bills and track payments.</p>
+                <a href="{{ route('bills.index') }}" class="card-btn">View Bills</a>
             </div>
         </div>
     </div>
@@ -571,6 +567,8 @@
                             <div class="error">{{ $message }}</div>
                         @enderror
                     </div>
+
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" onclick="closeModal()">
@@ -654,6 +652,9 @@
                     participantDiv.remove();
                     updateParticipantsCount();
                 }, 300);
+            } else {
+                // Show a message that at least one participant is required
+                alert('At least one participant is required. You can add more participants using the "Add Participant" button.');
             }
         }
 
